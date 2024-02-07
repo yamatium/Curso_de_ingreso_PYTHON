@@ -36,6 +36,7 @@ class App(customtkinter.CTk):
         nombreAlumno = prompt("Titulo", "Ingrese su nombre")
         # self.txt_nombre.delete(0, 10)
         #self.txt_nombre.delete(0, tkinter.END)
+        
         self.txt_nombre.delete(0, "end")
         self.txt_nombre.insert(0, nombreAlumno)
         
