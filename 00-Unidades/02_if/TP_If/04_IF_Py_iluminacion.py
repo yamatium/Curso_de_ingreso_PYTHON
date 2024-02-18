@@ -43,7 +43,62 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        
+        precioPorUnidad = 800
+
+        marca           = self.combobox_marca.get()
+        cantidad        = self.combobox_cantidad.get()
+        cantidadInt  = int(cantidad)
+
+        precioSinDescuento  = float(precioPorUnidad * cantidadInt)
+
+        #A
+        if cantidadInt >= 6:
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.5   # 50(descuento)/100
+            mensaje = f"Comprando a partir de 6 lamparitas se aplica un descuento de 50%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+        elif cantidadInt > 9 and precioConDescuento > 4000: #E incompleto, buscar nested if
+            precioConDescuentoFinal = (precioSinDescuento - precioSinDescuento * 0.5) * 0.05
+            mensaje = f"Con una compra mayor a 4000$ se aplica un descuento de 5%,quedando un total de {precioConDescuentoFinal}"
+            alert("ticket de compra", mensaje)
+        elif cantidadInt <= 2:
+            mensaje = f"Su total es de {precioSinDescuento}"
+            alert("Ticket de compra", mensaje)
+
+        #B
+        if  cantidadInt == 5 and marca == "ArgentinaLuz" :
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.4
+            mensaje = f"Comprando 5 lamparitas ArgentinaLuz se aplica un descuento de 40%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+        elif cantidadInt == 5:
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.3
+            mensaje = f"comprando 5 lamparitas se aplica un descuento de 30%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+
+        #C
+        if cantidadInt == 4 and  (marca == "ArgentinaLuz" or "FelipeLamparas"): 
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.25
+            mensaje = f"Comprando 4 lamparitas ArgentinaLuz o FelipeLamparas se aplica un descuento de 25%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+        elif cantidadInt == 4:
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.2
+            mensaje = f"Comprando 4 lamparitas se aplica un descuento de 20%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+
+        #D
+        if cantidadInt == 3 and marca == "ArgentinaLuz":
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.15
+            mensaje = f"comprando 3 lamparitas ArgentinaLuz se aplica un descuento de 15%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+        elif cantidadInt == 3 and marca  == "FelipeLamparas":
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.10
+            mensaje = f"Comprando 3 lampartias FelipeLamparas se aplica un descuento de 10%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+        elif cantidadInt == 3:
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.05
+            mensaje = f"Comprando 3 lamparitas se aplica un descuento de 5%, quedando un total de {precioConDescuento}"
+            alert("Ticket de compra", mensaje)
+
         
     
 if __name__ == "__main__":

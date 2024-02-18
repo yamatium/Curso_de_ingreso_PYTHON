@@ -7,8 +7,8 @@ import random
 
 
 '''
-nombre:
-apellido:
+nombre:   Rodrigo
+apellido: Fleitas
 ---
 Ejercicio: if_10
 ---
@@ -27,12 +27,27 @@ class App(customtkinter.CTk):
 
         self.title("UTN Fra")
 
-        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
+        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Calcular", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass  
+        
+        numInt  = random.randint(1,10)
+        mensaje = f"la nota es {numInt}"
+
+        if (numInt >= 6):
+            promocion = f"Promoción directa, "
+            alert("UTN", promocion + mensaje)
+
+        elif (numInt == 5 or numInt == 4):
+            aprobado = f"Aprobado, "
+            alert("UTN", aprobado + mensaje)
+
+        elif (numInt <= 3):
+           desaprovado = f"Desaprobado, "
+           alert("UTN", desaprovado + mensaje)
+        
             
 
 if __name__ == "__main__":
