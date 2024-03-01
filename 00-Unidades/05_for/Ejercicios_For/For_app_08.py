@@ -26,7 +26,22 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        
+        numero = int(prompt("UTN","ingrese un numero"))
+        contador_primos = 0
+        print("Numeros primos encontrados:")
+        
+        for i in range(2, numero+1):
+            bandera_primos = True
+            for j in range(2, i): 
+                if i % j == 0:
+                    bandera_primos = False
+            if bandera_primos:
+                    contador_primos += 1 
+                    print(f"\t{i}") # 9,15 y 21 los saltea
+    
+
+        print(f"Se encontraron {contador_primos} numeros primos")
     
 if __name__ == "__main__":
     app = App()

@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:   Rodrigo
+apellido: Fleitas
 ---
 TP: IF_Iluminacion
 ---
@@ -54,13 +54,13 @@ class App(customtkinter.CTk):
 
         #A
         if cantidadInt >= 6:
-            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.5   # 50(descuento)/100
+            precioConDescuento = precioSinDescuento - precioSinDescuento * 0.5   
             mensaje = f"Comprando a partir de 6 lamparitas se aplica un descuento de 50%, quedando un total de {precioConDescuento}"
             alert("Ticket de compra", mensaje)
-        elif cantidadInt > 9 and precioConDescuento > 4000: #E incompleto, buscar nested if
-            precioConDescuentoFinal = (precioSinDescuento - precioSinDescuento * 0.5) * 0.05
-            mensaje = f"Con una compra mayor a 4000$ se aplica un descuento de 5%,quedando un total de {precioConDescuentoFinal}"
-            alert("ticket de compra", mensaje)
+            if precioConDescuento > 4000: 
+                precioConDescuentoFinal = precioConDescuento - precioConDescuento * 0.05
+                mensaje = f"Con una compra mayor a 4000$ se aplica un descuento de 5%,quedando un total de {precioConDescuentoFinal}"
+                alert("ticket de compra", mensaje)
         elif cantidadInt <= 2:
             mensaje = f"Su total es de {precioSinDescuento}"
             alert("Ticket de compra", mensaje)
@@ -76,11 +76,11 @@ class App(customtkinter.CTk):
             alert("Ticket de compra", mensaje)
 
         #C
-        if cantidadInt == 4 and  (marca == "ArgentinaLuz" or "FelipeLamparas"): 
+        if cantidadInt == 4 and  (marca == "ArgentinaLuz" or marca == "FelipeLamparas"): 
             precioConDescuento = precioSinDescuento - precioSinDescuento * 0.25
             mensaje = f"Comprando 4 lamparitas ArgentinaLuz o FelipeLamparas se aplica un descuento de 25%, quedando un total de {precioConDescuento}"
             alert("Ticket de compra", mensaje)
-        elif cantidadInt == 4:
+        elif cantidadInt == 4 and (marca != "ArgentinaLuz" and marca != "FelipeLamparas"):
             precioConDescuento = precioSinDescuento - precioSinDescuento * 0.2
             mensaje = f"Comprando 4 lamparitas se aplica un descuento de 20%, quedando un total de {precioConDescuento}"
             alert("Ticket de compra", mensaje)

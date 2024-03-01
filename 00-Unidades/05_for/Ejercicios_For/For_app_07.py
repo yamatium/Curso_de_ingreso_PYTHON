@@ -26,7 +26,23 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        
+        numero = prompt("UTN","ingrese un numero")
+        numero = int(numero)
+        bandera_divisor = False
+
+        for i in range(2, numero):
+            if numero % i == 0:
+                bandera_divisor = True
+                break
+        
+        if bandera_divisor == False:
+            print("es primo")
+        else:
+            print("no es primo")
+        
+        
+
         
     
 if __name__ == "__main__":

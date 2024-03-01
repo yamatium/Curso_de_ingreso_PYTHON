@@ -44,8 +44,6 @@ class App(customtkinter.CTk):
 
             acumuladorNumeros = acumuladorNumeros + numero
 
-
-
             contadorIteracion += 1
 
         promedio = acumuladorNumeros / contadorIteracion

@@ -16,7 +16,7 @@ Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mens
 en función del mes seleccionado:
     Si tiene 28 días
     Si tiene 30 días
-    Si tiene 31 días
+    Si tiene 31 días 
 '''
 
 

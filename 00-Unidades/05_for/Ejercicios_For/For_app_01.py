@@ -28,8 +28,20 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
-       
+        
+        for i in range(5):
+            alert("UTN",i+1)
+
+        print("FIN")
+        
+        #limite = 10
+
+        #rango = list(range(3, limite))   #range(a,b,c) a = donde empieza, b= donde termina, c=cuanto escala segun iteracion. range(0,10,2)
+
+        #print(rango)
+
+        #while: no conocemos la cantidad de iteraciones 
+        #for: conoecemos la cantidad de iteraciones
             
 
 if __name__ == "__main__":

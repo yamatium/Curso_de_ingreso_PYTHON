@@ -20,6 +20,8 @@ Luego calcular:
     D. Cantidad de números negativos ingresados
     E. Cantidad de ceros
     F. Diferencia entre la cantidad de los números positivos ingresados y los negativos
+    G. Valor maximo 
+    H. Valor minimo, en que iteracion se encuntro el minimo
 
 Informar los resultados mediante alert()
 
@@ -37,7 +39,38 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        suma_negativos = 0
+        suma_positivos = 0
+        cantidad_positivos = 0
+        cantidad_negativos = 0
+        cantidad_ceros = 0
+        diferencia_negativos_positivos = 0
+        maximo = 0
+        minimo = 0
+        bandera_numero = False
+        contador = 0
+        
+
+
+        while True:
+            numero = prompt("Utn" , "Ingrese el número")
+            if numero == None:
+                break
+            numero = float(numero)
+            if numero > 0:
+                cantidad_positivos += 1
+                suma_positivos += numero
+            elif numero == 0:
+                cantidad_ceros += 1
+            else:
+                cantidad_negativos += 1
+                suma_negativos += numero
+
+        diferencia_negativos_positivos = abs(cantidad_positivos - cantidad_negativos)
+        
+        msg = f"Positivos: {suma_positivos}, Negativos: {suma_negativos}, Cantidad de ceros: {cantidad_ceros}, Cantidad de positivos: {cantidad_positivos}, Cantidad de negativos: {cantidad_negativos} y Diferencia entre positivos y negativos: {diferencia_negativos_positivos} "
+
+        alert("UTN",msg)
 
     
 if __name__ == "__main__":
